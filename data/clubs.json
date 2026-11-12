@@ -1,0 +1,1075 @@
+{
+ "clubs": [
+  {
+   "id": "ac-milan",
+   "name": "AC Milan",
+   "country": "Italy",
+   "erasParticipated": [
+    "1980s",
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "1980s",
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "primaryColor": "#FB090B"
+  },
+  {
+   "id": "ajax",
+   "name": "Ajax",
+   "country": "Netherlands",
+   "erasParticipated": [
+    "1980s",
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "1980s",
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "primaryColor": "#D2122E"
+  },
+  {
+   "id": "anderlecht",
+   "name": "Anderlecht",
+   "country": "Belgium",
+   "erasParticipated": [
+    "1980s",
+    "2000s"
+   ],
+   "leagueEras": [
+    "1980s",
+    "2000s"
+   ],
+   "primaryColor": "#5A2D81"
+  },
+  {
+   "id": "arsenal",
+   "name": "Arsenal",
+   "country": "England",
+   "erasParticipated": [
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "primaryColor": "#EF0107"
+  },
+  {
+   "id": "aston-villa",
+   "name": "Aston Villa",
+   "country": "England",
+   "erasParticipated": [
+    "1980s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "1980s",
+    "2020s"
+   ],
+   "primaryColor": "#670E36"
+  },
+  {
+   "id": "atalanta",
+   "name": "Atalanta",
+   "country": "Italy",
+   "erasParticipated": [
+    "2010s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "2010s",
+    "2020s"
+   ],
+   "primaryColor": "#1E71B8"
+  },
+  {
+   "id": "athletic-bilbao",
+   "name": "Athletic Bilbao",
+   "country": "Spain",
+   "erasParticipated": [
+    "1980s",
+    "2010s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "1980s",
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "primaryColor": "#EE2523"
+  },
+  {
+   "id": "atletico-madrid",
+   "name": "Atlético Madrid",
+   "country": "Spain",
+   "erasParticipated": [
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "primaryColor": "#CB3524"
+  },
+  {
+   "id": "barcelona",
+   "name": "Barcelona",
+   "country": "Spain",
+   "erasParticipated": [
+    "1980s",
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "1980s",
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "primaryColor": "#A50044"
+  },
+  {
+   "id": "bayer-leverkusen",
+   "name": "Bayer Leverkusen",
+   "country": "Germany",
+   "erasParticipated": [
+    "2000s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "2000s",
+    "2020s"
+   ],
+   "primaryColor": "#E32221"
+  },
+  {
+   "id": "bayern-munich",
+   "name": "Bayern Munich",
+   "country": "Germany",
+   "erasParticipated": [
+    "1980s",
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "1980s",
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "primaryColor": "#DC052D"
+  },
+  {
+   "id": "benfica",
+   "name": "Benfica",
+   "country": "Portugal",
+   "erasParticipated": [
+    "1980s",
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "1980s",
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "primaryColor": "#E83030"
+  },
+  {
+   "id": "blackburn-rovers",
+   "name": "Blackburn Rovers",
+   "country": "England",
+   "erasParticipated": [
+    "1990s"
+   ],
+   "leagueEras": [
+    "1990s"
+   ],
+   "primaryColor": "#009EE0"
+  },
+  {
+   "id": "bologna",
+   "name": "Bologna",
+   "country": "Italy",
+   "erasParticipated": [
+    "2020s"
+   ],
+   "leagueEras": [
+    "2020s"
+   ],
+   "primaryColor": "#9F1E33"
+  },
+  {
+   "id": "bordeaux",
+   "name": "Bordeaux",
+   "country": "France",
+   "erasParticipated": [
+    "1980s"
+   ],
+   "leagueEras": [
+    "1980s"
+   ],
+   "primaryColor": "#001F47"
+  },
+  {
+   "id": "borussia-dortmund",
+   "name": "Borussia Dortmund",
+   "country": "Germany",
+   "erasParticipated": [
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "primaryColor": "#FDE100"
+  },
+  {
+   "id": "celtic",
+   "name": "Celtic",
+   "country": "Scotland",
+   "erasParticipated": [
+    "1980s",
+    "2000s",
+    "2010s"
+   ],
+   "leagueEras": [
+    "1980s",
+    "2000s",
+    "2010s"
+   ],
+   "primaryColor": "#018749"
+  },
+  {
+   "id": "chelsea",
+   "name": "Chelsea",
+   "country": "England",
+   "erasParticipated": [
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "primaryColor": "#034694"
+  },
+  {
+   "id": "club-brugge",
+   "name": "Club Brugge",
+   "country": "Belgium",
+   "erasParticipated": [
+    "1990s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "1990s",
+    "2020s"
+   ],
+   "primaryColor": "#0070B8"
+  },
+  {
+   "id": "deportivo-la-coruna",
+   "name": "Deportivo La Coruña",
+   "country": "Spain",
+   "erasParticipated": [
+    "2000s"
+   ],
+   "leagueEras": [
+    "2000s"
+   ],
+   "primaryColor": "#0061B5"
+  },
+  {
+   "id": "dundee-united",
+   "name": "Dundee United",
+   "country": "Scotland",
+   "erasParticipated": [
+    "1980s"
+   ],
+   "leagueEras": [
+    "1980s"
+   ],
+   "primaryColor": "#FF6900"
+  },
+  {
+   "id": "dynamo-kyiv",
+   "name": "Dynamo Kyiv",
+   "country": "Ukraine",
+   "erasParticipated": [
+    "1980s",
+    "1990s"
+   ],
+   "leagueEras": [
+    "1980s",
+    "1990s"
+   ],
+   "primaryColor": "#0057B8"
+  },
+  {
+   "id": "everton",
+   "name": "Everton",
+   "country": "England",
+   "erasParticipated": [],
+   "leagueEras": [
+    "1980s",
+    "1990s",
+    "2010s",
+    "2020s"
+   ],
+   "primaryColor": "#003399"
+  },
+  {
+   "id": "feyenoord",
+   "name": "Feyenoord",
+   "country": "Netherlands",
+   "erasParticipated": [
+    "1990s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "1990s",
+    "2020s"
+   ],
+   "primaryColor": "#CC0000"
+  },
+  {
+   "id": "fiorentina",
+   "name": "Fiorentina",
+   "country": "Italy",
+   "erasParticipated": [
+    "1990s",
+    "2000s"
+   ],
+   "leagueEras": [
+    "1990s",
+    "2000s"
+   ],
+   "primaryColor": "#592C82"
+  },
+  {
+   "id": "galatasaray",
+   "name": "Galatasaray",
+   "country": "Turkey",
+   "erasParticipated": [
+    "1990s",
+    "2000s"
+   ],
+   "leagueEras": [
+    "1990s",
+    "2000s"
+   ],
+   "primaryColor": "#FDB912"
+  },
+  {
+   "id": "hamburg",
+   "name": "Hamburger SV",
+   "country": "Germany",
+   "erasParticipated": [
+    "1980s"
+   ],
+   "leagueEras": [
+    "1980s"
+   ],
+   "primaryColor": "#0A3F86"
+  },
+  {
+   "id": "hellas-verona",
+   "name": "Hellas Verona",
+   "country": "Italy",
+   "erasParticipated": [
+    "1980s"
+   ],
+   "leagueEras": [
+    "1980s"
+   ],
+   "primaryColor": "#003399"
+  },
+  {
+   "id": "ifk-goteborg",
+   "name": "IFK Göteborg",
+   "country": "Sweden",
+   "erasParticipated": [
+    "1980s",
+    "1990s"
+   ],
+   "leagueEras": [
+    "1980s",
+    "1990s"
+   ],
+   "primaryColor": "#005AA0"
+  },
+  {
+   "id": "inter-milan",
+   "name": "Inter Milan",
+   "country": "Italy",
+   "erasParticipated": [
+    "1980s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "1980s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "primaryColor": "#0068A8"
+  },
+  {
+   "id": "juventus",
+   "name": "Juventus",
+   "country": "Italy",
+   "erasParticipated": [
+    "1980s",
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "1980s",
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "primaryColor": "#000000"
+  },
+  {
+   "id": "lazio",
+   "name": "Lazio",
+   "country": "Italy",
+   "erasParticipated": [
+    "1990s",
+    "2000s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "1990s",
+    "2000s",
+    "2020s"
+   ],
+   "primaryColor": "#87D8F7"
+  },
+  {
+   "id": "leeds-united",
+   "name": "Leeds United",
+   "country": "England",
+   "erasParticipated": [
+    "1990s",
+    "2000s"
+   ],
+   "leagueEras": [
+    "1990s",
+    "2000s"
+   ],
+   "primaryColor": "#FFCD00"
+  },
+  {
+   "id": "leicester-city",
+   "name": "Leicester City",
+   "country": "England",
+   "erasParticipated": [
+    "2010s"
+   ],
+   "leagueEras": [
+    "2010s"
+   ],
+   "primaryColor": "#0053A0"
+  },
+  {
+   "id": "liverpool",
+   "name": "Liverpool",
+   "country": "England",
+   "erasParticipated": [
+    "1980s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "1980s",
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "primaryColor": "#C8102E"
+  },
+  {
+   "id": "lyon",
+   "name": "Lyon",
+   "country": "France",
+   "erasParticipated": [
+    "2000s",
+    "2010s"
+   ],
+   "leagueEras": [
+    "2000s",
+    "2010s"
+   ],
+   "primaryColor": "#DA001A"
+  },
+  {
+   "id": "manchester-city",
+   "name": "Manchester City",
+   "country": "England",
+   "erasParticipated": [
+    "2010s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "2010s",
+    "2020s"
+   ],
+   "primaryColor": "#6CABDD"
+  },
+  {
+   "id": "manchester-united",
+   "name": "Manchester United",
+   "country": "England",
+   "erasParticipated": [
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "1980s",
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "primaryColor": "#DA291C"
+  },
+  {
+   "id": "marseille",
+   "name": "Marseille",
+   "country": "France",
+   "erasParticipated": [
+    "1990s",
+    "2000s"
+   ],
+   "leagueEras": [
+    "1990s",
+    "2000s"
+   ],
+   "primaryColor": "#2FAEE0"
+  },
+  {
+   "id": "monaco",
+   "name": "Monaco",
+   "country": "France",
+   "erasParticipated": [
+    "1980s",
+    "1990s",
+    "2000s",
+    "2010s"
+   ],
+   "leagueEras": [
+    "1980s",
+    "1990s",
+    "2000s",
+    "2010s"
+   ],
+   "primaryColor": "#E63B17"
+  },
+  {
+   "id": "napoli",
+   "name": "Napoli",
+   "country": "Italy",
+   "erasParticipated": [
+    "1980s",
+    "2010s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "1980s",
+    "2010s",
+    "2020s"
+   ],
+   "primaryColor": "#12A0D7"
+  },
+  {
+   "id": "newcastle-united",
+   "name": "Newcastle United",
+   "country": "England",
+   "erasParticipated": [
+    "1990s",
+    "2000s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "1990s",
+    "2000s",
+    "2020s"
+   ],
+   "primaryColor": "#241F20"
+  },
+  {
+   "id": "nottingham-forest",
+   "name": "Nottingham Forest",
+   "country": "England",
+   "erasParticipated": [
+    "1980s"
+   ],
+   "leagueEras": [
+    "1980s"
+   ],
+   "primaryColor": "#DD0000"
+  },
+  {
+   "id": "olympiacos",
+   "name": "Olympiacos",
+   "country": "Greece",
+   "erasParticipated": [
+    "2000s",
+    "2010s"
+   ],
+   "leagueEras": [
+    "2000s",
+    "2010s"
+   ],
+   "primaryColor": "#D6001C"
+  },
+  {
+   "id": "panathinaikos",
+   "name": "Panathinaikos",
+   "country": "Greece",
+   "erasParticipated": [
+    "1990s",
+    "2000s"
+   ],
+   "leagueEras": [
+    "1990s",
+    "2000s"
+   ],
+   "primaryColor": "#007A33"
+  },
+  {
+   "id": "paris-saint-germain",
+   "name": "Paris Saint-Germain",
+   "country": "France",
+   "erasParticipated": [
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "primaryColor": "#004170"
+  },
+  {
+   "id": "parma",
+   "name": "Parma",
+   "country": "Italy",
+   "erasParticipated": [
+    "1990s"
+   ],
+   "leagueEras": [
+    "1990s"
+   ],
+   "primaryColor": "#FFD520"
+  },
+  {
+   "id": "porto",
+   "name": "Porto",
+   "country": "Portugal",
+   "erasParticipated": [
+    "1980s",
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "1980s",
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "primaryColor": "#00428C"
+  },
+  {
+   "id": "psv-eindhoven",
+   "name": "PSV Eindhoven",
+   "country": "Netherlands",
+   "erasParticipated": [
+    "1980s",
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "1980s",
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "primaryColor": "#ED1C24"
+  },
+  {
+   "id": "rangers",
+   "name": "Rangers",
+   "country": "Scotland",
+   "erasParticipated": [
+    "1990s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "1990s",
+    "2020s"
+   ],
+   "primaryColor": "#1B458F"
+  },
+  {
+   "id": "rb-leipzig",
+   "name": "RB Leipzig",
+   "country": "Germany",
+   "erasParticipated": [
+    "2010s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "2010s",
+    "2020s"
+   ],
+   "primaryColor": "#DD0741"
+  },
+  {
+   "id": "real-betis",
+   "name": "Real Betis",
+   "country": "Spain",
+   "erasParticipated": [
+    "2000s"
+   ],
+   "leagueEras": [
+    "2000s",
+    "2020s"
+   ],
+   "primaryColor": "#00954C"
+  },
+  {
+   "id": "real-madrid",
+   "name": "Real Madrid",
+   "country": "Spain",
+   "erasParticipated": [
+    "1980s",
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "1980s",
+    "1990s",
+    "2000s",
+    "2010s",
+    "2020s"
+   ],
+   "primaryColor": "#FEBE10"
+  },
+  {
+   "id": "real-sociedad",
+   "name": "Real Sociedad",
+   "country": "Spain",
+   "erasParticipated": [
+    "1980s"
+   ],
+   "leagueEras": [
+    "1980s"
+   ],
+   "primaryColor": "#0067B1"
+  },
+  {
+   "id": "real-zaragoza",
+   "name": "Real Zaragoza",
+   "country": "Spain",
+   "erasParticipated": [],
+   "leagueEras": [
+    "1990s",
+    "2000s"
+   ],
+   "primaryColor": "#2D6DB6"
+  },
+  {
+   "id": "red-star-belgrade",
+   "name": "Red Star Belgrade",
+   "country": "Serbia",
+   "erasParticipated": [
+    "1980s",
+    "1990s"
+   ],
+   "leagueEras": [
+    "1980s",
+    "1990s"
+   ],
+   "primaryColor": "#D6001C"
+  },
+  {
+   "id": "roma",
+   "name": "Roma",
+   "country": "Italy",
+   "erasParticipated": [
+    "1980s",
+    "2000s",
+    "2010s"
+   ],
+   "leagueEras": [
+    "1980s",
+    "2000s",
+    "2010s"
+   ],
+   "primaryColor": "#8E1F2F"
+  },
+  {
+   "id": "sampdoria",
+   "name": "Sampdoria",
+   "country": "Italy",
+   "erasParticipated": [
+    "1990s"
+   ],
+   "leagueEras": [
+    "1990s"
+   ],
+   "primaryColor": "#1B5497"
+  },
+  {
+   "id": "schalke-04",
+   "name": "Schalke 04",
+   "country": "Germany",
+   "erasParticipated": [
+    "2010s"
+   ],
+   "leagueEras": [
+    "2010s"
+   ],
+   "primaryColor": "#004D9D"
+  },
+  {
+   "id": "sevilla",
+   "name": "Sevilla",
+   "country": "Spain",
+   "erasParticipated": [
+    "2010s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "2010s",
+    "2020s"
+   ],
+   "primaryColor": "#D8261C"
+  },
+  {
+   "id": "shakhtar-donetsk",
+   "name": "Shakhtar Donetsk",
+   "country": "Ukraine",
+   "erasParticipated": [
+    "2010s"
+   ],
+   "leagueEras": [
+    "2010s"
+   ],
+   "primaryColor": "#F06400"
+  },
+  {
+   "id": "spartak-moscow",
+   "name": "Spartak Moscow",
+   "country": "Russia",
+   "erasParticipated": [
+    "1990s"
+   ],
+   "leagueEras": [
+    "1990s"
+   ],
+   "primaryColor": "#C8102E"
+  },
+  {
+   "id": "sporting-cp",
+   "name": "Sporting CP",
+   "country": "Portugal",
+   "erasParticipated": [
+    "2000s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "2000s",
+    "2020s"
+   ],
+   "primaryColor": "#008055"
+  },
+  {
+   "id": "steaua-bucharest",
+   "name": "Steaua Bucharest",
+   "country": "Romania",
+   "erasParticipated": [
+    "1980s",
+    "1990s"
+   ],
+   "leagueEras": [
+    "1980s",
+    "1990s"
+   ],
+   "primaryColor": "#C8102E"
+  },
+  {
+   "id": "torino",
+   "name": "Torino",
+   "country": "Italy",
+   "erasParticipated": [],
+   "leagueEras": [
+    "1990s"
+   ],
+   "primaryColor": "#8B1B25"
+  },
+  {
+   "id": "tottenham-hotspur",
+   "name": "Tottenham Hotspur",
+   "country": "England",
+   "erasParticipated": [
+    "2010s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "1980s",
+    "2010s",
+    "2020s"
+   ],
+   "primaryColor": "#132257"
+  },
+  {
+   "id": "udinese",
+   "name": "Udinese",
+   "country": "Italy",
+   "erasParticipated": [
+    "2000s"
+   ],
+   "leagueEras": [
+    "2000s"
+   ],
+   "primaryColor": "#000000"
+  },
+  {
+   "id": "valencia",
+   "name": "Valencia",
+   "country": "Spain",
+   "erasParticipated": [
+    "1990s",
+    "2000s",
+    "2010s"
+   ],
+   "leagueEras": [
+    "1990s",
+    "2000s",
+    "2010s"
+   ],
+   "primaryColor": "#F4A100"
+  },
+  {
+   "id": "villarreal",
+   "name": "Villarreal",
+   "country": "Spain",
+   "erasParticipated": [
+    "2000s",
+    "2020s"
+   ],
+   "leagueEras": [
+    "2000s",
+    "2020s"
+   ],
+   "primaryColor": "#FFE667"
+  },
+  {
+   "id": "werder-bremen",
+   "name": "Werder Bremen",
+   "country": "Germany",
+   "erasParticipated": [
+    "1980s",
+    "2000s"
+   ],
+   "leagueEras": [
+    "1980s",
+    "2000s"
+   ],
+   "primaryColor": "#1D9053"
+  },
+  {
+   "id": "west-ham-united",
+   "name": "West Ham United",
+   "country": "England",
+   "erasParticipated": [],
+   "leagueEras": [
+    "1980s",
+    "2020s"
+   ],
+   "primaryColor": "#7A263A"
+  },
+  {
+   "id": "zenit",
+   "name": "Zenit St Petersburg",
+   "country": "Russia",
+   "erasParticipated": [
+    "2010s"
+   ],
+   "leagueEras": [
+    "2010s"
+   ],
+   "primaryColor": "#009CDD"
+  }
+ ]
+}

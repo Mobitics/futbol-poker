@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fútbol Poker</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">⚽ Fútbol <span>Poker</span></div>
+    <div class="hud" id="hud"></div>
+    <div class="top-actions">
+      <button class="ghost" id="btn-rules">How to play</button>
+      <button class="ghost" id="btn-new">New game</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="table-wrap">
+      <div class="table" id="table">
+        <div class="felt">
+          <div class="center">
+            <div class="pot" id="pot"></div>
+            <div class="board" id="board"></div>
+            <div class="street" id="street"></div>
+          </div>
+        </div>
+        <div id="seats"></div>
+      </div>
+      <div class="me" id="me">
+        <div class="my-cards" id="my-cards"></div>
+        <div class="actions" id="actions"></div>
+      </div>
+    </section>
+
+    <aside class="side">
+      <div class="panel" id="team-panel"></div>
+      <div class="panel log-panel">
+        <h3>Table talk</h3>
+        <div class="log" id="log"></div>
+      </div>
+    </aside>
+  </main>
+
+  <div class="overlay hidden" id="overlay"><div class="modal" id="modal"></div></div>
+
+  <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
