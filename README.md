@@ -5,7 +5,13 @@ cards, 5 more come to the board, and the best **5-a-side team** (GK, DEF,
 MID, FWD + one flexible outfielder) out of your 7 wins the pot. A team's
 score is **Talent + Chemistry**, and chemistry carries a lot of the weight.
 
-## Run it
+## Play online
+
+**https://mobitics.github.io/futbol-poker/** is hosted on GitHub Pages from this repo. Every push to `main` redeploys it.
+
+Click **Create online table** and send friends the invite link. The host's browser runs the game, and players connect to it directly through WebRTC (PeerJS). There's no server, so the host has to keep the tab open. The code is in `js/net.js` and `js/engine/view.js`.
+
+## Run it locally
 
 No install needed. Python 3 serves the folder:
 
