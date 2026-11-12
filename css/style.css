@@ -246,6 +246,31 @@ kbd { font-size: 10px; opacity: .6; margin-left: 4px; }
 .banner { text-align: center; padding: 20px; }
 .banner .big { font-size: 28px; font-weight: 900; color: var(--gold); }
 
+/* ---------- Deck panel ---------- */
+.side { overflow-y: auto; }
+.deck-head { display: flex; justify-content: space-between; align-items: baseline; cursor: pointer; user-select: none; margin: 0 !important; }
+.deck-head .hint { text-transform: none; letter-spacing: 0; }
+.deck-list { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+.sq-top { display: flex; align-items: center; gap: 6px; font-size: 12.5px; }
+.sw { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+.sqn { font-weight: 700; flex: 1; }
+.sqn small { color: var(--muted); font-weight: 400; }
+.sq-left { color: var(--muted); font-size: 11px; }
+.sq.live .sq-left { color: var(--gold); }
+.chips { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 3px; }
+.chip {
+  font-size: 10.5px; padding: 1px 6px; border-radius: 5px; background: var(--panel-2);
+  border: 1px solid var(--line); color: #c4d3cb; white-space: nowrap;
+}
+.chip b { color: var(--muted); font-weight: 700; font-size: 9px; }
+.chip i { font-style: normal; color: var(--muted); }
+.chip.mine { background: var(--gold); color: #2b2000; border-color: var(--gold); }
+.chip.onboard { background: #1f6b43; color: #fff; border-color: #2c8a58; }
+.chip.shown { background: #3a2f55; color: #e6dcff; border-color: #5a4a85; }
+.chip.mine b, .chip.mine i, .chip.onboard b, .chip.onboard i, .chip.shown b, .chip.shown i { color: inherit; opacity: .75; }
+.deck-legend { display: flex; gap: 6px; margin-top: 10px; }
+.log-panel { min-height: 140px; }
+
 /* ---------- Online ---------- */
 button.tiny { padding: 2px 8px; font-size: 11px; border-radius: 6px; margin-left: 6px; }
 .clock { color: var(--accent); font-weight: 700; }

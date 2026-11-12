@@ -35,9 +35,9 @@ export function viewFor(t, me, extra = {}) {
       winners: t.result.winners,
       showdown: reveal ? Object.keys(t.result.teams).map(Number) : [],
     } : null,
-    // The 52-card set for this hand (not its order) — lets each client
-    // estimate its own win chance without seeing anyone's cards.
-    deck: betting ? t.deckIds : null,
+    // The game's public deck (its contents, never its order): lets each
+    // client show what's still out there and estimate its own win chance.
+    deck: t.deckIds,
     log: t.log.slice(-60),
   };
 }

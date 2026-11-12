@@ -1,9 +1,9 @@
-import { Table } from './engine/table.js';
-import { groupSquads } from './engine/deck.js';
-import { bestTeam, HAND_RANKINGS, CHEM } from './engine/evaluate.js';
-import { decide, equityFromCards, PERSONALITIES } from './engine/ai.js';
-import { viewFor } from './engine/view.js';
-import { hostRoom, joinRoom, normalizeCode } from './net.js';
+import { Table } from './engine/table.js?v=20261112093815';
+import { groupSquads, DECK_SIZES } from './engine/deck.js?v=20261112093815';
+import { bestTeam, HAND_RANKINGS, CHEM } from './engine/evaluate.js?v=20261112093815';
+import { decide, equityFromCards, PERSONALITIES } from './engine/ai.js?v=20261112093815';
+import { viewFor } from './engine/view.js?v=20261112093815';
+import { hostRoom, joinRoom, normalizeCode } from './net.js?v=20261112093815';
 
 const $ = id => document.getElementById(id);
 const AI_DELAY = 750;
@@ -54,7 +54,7 @@ async function boot() {
 }
 
 function loadSettings() {
-  const d = { name: '', bots: 4, stack: 1000, blinds: '10/20', deck: 'all', showEquity: true };
+  const d = { name: '', bots: 4, stack: 1000, blinds: '10/20', deck: 'all', deckSize: 'small', showEquity: true };
   try { return { ...d, ...JSON.parse(localStorage.getItem('fp-settings') || '{}') }; } catch { return d; }
 }
 function saveSettings() { try { localStorage.setItem('fp-settings', JSON.stringify(settings)); } catch {} }
@@ -92,7 +92,7 @@ function makeTable(seats) {
   const [sb, bb] = settings.blinds.split('/').map(Number);
   return new Table({
     seats, squads: SQUADS, smallBlind: sb, bigBlind: bb,
-    deckOpts: settings.deck === 'elite' ? { minSquadOverall: 81 } : {},
+    deckOpts: { ...(DECK_SIZES[settings.deckSize] || DECK_SIZES.small), minSquadOverall: settings.deck === 'elite' ? 81 : 0 },
   });
 }
 
@@ -277,7 +277,7 @@ function lobbyPlayers() {
 }
 
 function broadcastLobby() {
-  const msg = { t: 'lobby', code: host.code, players: lobbyPlayers(), bots: host.bots, settings: { stack: settings.stack, blinds: settings.blinds } };
+  const msg = { t: 'lobby', code: host.code, players: lobbyPlayers(), bots: host.bots, settings: { stack: settings.stack, blinds: settings.blinds, deck: (DECK_SIZES[settings.deckSize] || DECK_SIZES.small).label } };
   for (const c of host.clients.values()) if (c.conn.open) try { c.conn.send(msg); } catch {}
 }
 
@@ -492,6 +492,7 @@ function render() {
 
   renderActions();
   renderTeamPanel(myTeam);
+  renderDeck();
   renderLog();
   updateClocks();
 }
@@ -627,7 +628,7 @@ function renderTeamPanel(team) {
       ${chemList(team.chemItems)}`;
   }
   const opponents = v.seats.filter((s, i) => i !== v.me && !s.folded && !s.out).length;
-  if (settings.showEquity && hole.length && me && !me.folded && v.deck && opponents > 0) {
+  if (settings.showEquity && hole.length && me && !me.folded && v.deck && opponents > 0 && ['preflop', 'flop', 'turn', 'river'].includes(v.street)) {
     const key = `${v.handNo}|${v.board.length}|${opponents}`;
     if (equityCache.key !== key) {
       equityCache = { key, value: null };
@@ -644,6 +645,53 @@ function renderTeamPanel(team) {
       <div class="bar"><div style="width:${val == null ? 0 : val * 100}%"></div></div></div>`;
   }
   $('team-panel').innerHTML = html;
+}
+
+let deckOpen = (() => { try { return localStorage.getItem('fp-deck-open') !== '0'; } catch { return true; } })();
+
+/** The game's public deck, squad by squad, with every card you can see marked. */
+function renderDeck() {
+  const v = view, el = $('deck-panel');
+  if (!v.deck || !v.deck.length) { el.innerHTML = ''; return; }
+  const mine = new Set(myCards().map(c => c.id));
+  const board = new Set(v.board);
+  const shown = new Set();
+  v.seats.forEach((s, i) => { if (i !== v.me && s.hole) s.hole.forEach(id => shown.add(id)); });
+  const squads = [];
+  const byKey = new Map();
+  for (const id of v.deck) {
+    const c = card(id);
+    const k = c.clubId + '|' + c.era;
+    if (!byKey.has(k)) { byKey.set(k, []); squads.push(k); }
+    byKey.get(k).push(c);
+  }
+  const order = { GK: 0, DEF: 1, MID: 2, FWD: 3 };
+  const unseenTotal = v.deck.filter(id => !mine.has(id) && !board.has(id) && !shown.has(id)).length;
+  let html = `<h3 class="deck-head" id="deck-toggle"><span>Deck · ${squads.length} squads · ${v.deck.length} cards</span><span class="hint">${unseenTotal} unseen ${deckOpen ? '▾' : '▸'}</span></h3>`;
+  if (deckOpen) {
+    html += '<div class="deck-list">' + squads.map(k => {
+      const cards = byKey.get(k).sort((a, b) => order[a.position] - order[b.position] || b.overall - a.overall);
+      const unseen = cards.filter(c => !mine.has(c.id) && !board.has(c.id) && !shown.has(c.id)).length;
+      const visible = cards.length - unseen;
+      return `<div class="sq ${visible ? 'live' : ''}">
+        <div class="sq-top"><span class="sw" style="background:${cards[0].color}"></span>
+          <span class="sqn">${esc(cards[0].club)} <small>${cards[0].era}</small></span>
+          <span class="sq-left">${visible ? `${visible} seen · ` : ''}${unseen} unseen</span></div>
+        <div class="chips">${cards.map(c => {
+          const st = mine.has(c.id) ? 'mine' : board.has(c.id) ? 'onboard' : shown.has(c.id) ? 'shown' : '';
+          const last = c.name.split(' ').slice(-1)[0];
+          return `<span class="chip ${st}" title="${esc(c.name)} — ${c.subPosition}, ${esc(c.nationality)}, OVR ${c.overall}${st ? ' (' + { mine: 'your card', onboard: 'on the board', shown: 'shown at showdown' }[st] + ')' : ''}"><b>${c.position}</b> ${esc(last)} <i>${c.overall}</i></span>`;
+        }).join('')}</div>
+      </div>`;
+    }).join('') + '</div>';
+    html += `<div class="deck-legend"><span class="chip mine">yours</span><span class="chip onboard">board</span><span class="chip shown">shown</span><span class="chip">unseen</span></div>`;
+  }
+  el.innerHTML = html;
+  $('deck-toggle').onclick = () => {
+    deckOpen = !deckOpen;
+    try { localStorage.setItem('fp-deck-open', deckOpen ? '1' : '0'); } catch {}
+    renderDeck();
+  };
 }
 
 function renderLog() {
@@ -717,7 +765,7 @@ function readForm() {
   settings = {
     name: ($('f-name').value || '').trim().slice(0, 16),
     bots: +$('f-bots').value, stack: +$('f-stack').value,
-    blinds: $('f-blinds').value, deck: $('f-deck').value, showEquity: $('f-eq').value === '1',
+    blinds: $('f-blinds').value, deck: $('f-deck').value, deckSize: $('f-size').value, showEquity: $('f-eq').value === '1',
   };
   saveSettings();
 }
@@ -760,8 +808,9 @@ function showHome(prefillRoom = '') {
       <label>Computer players</label><select id="f-bots">${[0, 1, 2, 3, 4, 5].map(n => `<option ${n === s.bots ? 'selected' : ''}>${n}</option>`).join('')}</select>
       <label>Starting chips</label><select id="f-stack">${[500, 1000, 2000, 5000].map(n => `<option ${n === s.stack ? 'selected' : ''}>${n}</option>`).join('')}</select>
       <label>Blinds</label><select id="f-blinds">${['5/10', '10/20', '25/50', '50/100'].map(n => `<option ${n === s.blinds ? 'selected' : ''}>${n}</option>`).join('')}</select>
-      <label>Deck</label><select id="f-deck">
-        <option value="all" ${s.deck === 'all' ? 'selected' : ''}>All 185 squads (1980s–2020s)</option>
+      <label>Deck size</label><select id="f-size">${Object.entries(DECK_SIZES).map(([k, d]) => `<option value="${k}" ${k === s.deckSize ? 'selected' : ''}>${d.label}</option>`).join('')}</select>
+      <label>Squads</label><select id="f-deck">
+        <option value="all" ${s.deck === 'all' ? 'selected' : ''}>Any of 185 squads (1980s–2020s)</option>
         <option value="elite" ${s.deck === 'elite' ? 'selected' : ''}>Elite squads only</option>
       </select>
       <label>Show win %</label><select id="f-eq"><option value="1" ${s.showEquity ? 'selected' : ''}>Yes (learning mode)</option><option value="0" ${!s.showEquity ? 'selected' : ''}>No</option></select>
@@ -832,7 +881,7 @@ function showLobby() {
 function showClientLobby() {
   const l = client.lobby;
   openModal(`<h2>Table ${l.code}</h2>
-    <div class="sub">You're in. Waiting for the host to start — ${l.settings.stack} chips, blinds ${l.settings.blinds}.</div>
+    <div class="sub">You're in. Waiting for the host to start — ${l.settings.stack} chips, blinds ${l.settings.blinds}${l.settings.deck ? `, deck: ${esc(l.settings.deck)}` : ''}.</div>
     <ul class="lobby-list">
       ${l.players.map(p => `<li>${esc(p.name)} ${p.host ? '<span class="tag">host</span>' : ''}</li>`).join('')}
       ${Array.from({ length: l.bots }, () => '<li class="bot">Computer player</li>').join('')}
@@ -856,7 +905,8 @@ function showRules() {
     <div class="rules">
       <div>
         <h4>The deal</h4>
-        <p>Each hand uses a fresh 52-card deck: <b>13 real squads × 4 players</b> (a squad = one club in one era, e.g. AC Milan 1980s). You get 2 players face down; 5 more come to the board (flop, turn, river) with betting in between. No-limit, blinds, side pots — standard rules.</p>
+        <p>Each game uses one <b>public deck</b> of real squads — by default <b>8 squads × 5 players (40 cards)</b>. A squad is one club in one era (e.g. AC Milan 1980s) and always holds a GK, DEF, MID, FWD and one extra outfielder, so squads work like suits. The deck stays the same all game (only the shuffle changes) and is listed in the <b>Deck</b> panel, with every card you can see marked — so you can count what's still out there and read what others are betting on.</p>
+        <p>You get 2 players face down; 5 more come to the board (flop, turn, river) with betting in between. No-limit, blinds, side pots — standard rules.</p>
         <h4>Your team</h4>
         <p>At showdown your best <b>5-a-side team</b> from your 7 cards is picked automatically: <b>GK, DEF, MID, FWD + one flexible outfielder</b>. Players out of position lose rating; an outfielder in goal is a disaster.</p>
         <h4>Team score = Talent + Chemistry</h4>

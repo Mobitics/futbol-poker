@@ -29,42 +29,56 @@ function weightedPick(items, weightFn, rng) {
   return items.length - 1;
 }
 
+export const DECK_SIZES = {
+  small:  { squadCount: 8,  perSquad: 5, label: 'Small — 8 squads × 5 (40 cards)' },
+  medium: { squadCount: 10, perSquad: 5, label: 'Medium — 10 squads × 5 (50 cards)' },
+  large:  { squadCount: 13, perSquad: 4, label: 'Large — 13 squads × 4 (52 cards)' },
+};
+
+const GROUPS = ['GK', 'DEF', 'MID', 'FWD'];
+const starWeight = p => Math.pow(Math.max(1, p.overall - 60) / 10, 2);
+
 /**
+ * Picks the deck for a whole game: a fixed, public set of squads. Every
+ * squad contributes one GK, DEF, MID and FWD (plus one extra outfielder
+ * when perSquad is 5), so squads work like suits in a normal deck and
+ * players can reason about what is still out there.
+ *
  * @param squads Map "clubId|era" -> players[]
- * @param opts { squadCount=13, perSquad=4, minSquadOverall=0 }
+ * @param opts { squadCount, perSquad, minSquadOverall }
+ * @returns cards in display order (squad by squad)
  */
-export function buildDeck(squads, rng, opts = {}) {
-  const { squadCount = 13, perSquad = 4, minSquadOverall = 0 } = opts;
+export function chooseDeck(squads, rng, opts = {}) {
+  const { squadCount = 8, perSquad = 5, minSquadOverall = 0 } = opts;
   const keys = shuffle([...squads.keys()].filter(k => {
     const ps = squads.get(k);
     const avg = ps.reduce((a, p) => a + p.overall, 0) / ps.length;
-    return ps.length >= perSquad && avg >= minSquadOverall;
+    return avg >= minSquadOverall && GROUPS.every(g => ps.some(p => p.position === g));
   }), rng);
 
   const deck = [];
   const persons = new Set();
+  let used = 0;
   for (const k of keys) {
-    if (deck.length >= squadCount * perSquad) break;
-    let pool = squads.get(k).filter(p => !persons.has(p.personId));
+    if (used >= squadCount) break;
+    const pool = squads.get(k).filter(p => !persons.has(p.personId));
     const chosen = [];
-    let hasGK = false;
-    while (chosen.length < perSquad && pool.length) {
-      // Stars show up more often; at most one keeper per squad.
-      const i = weightedPick(pool, p => {
-        const w = Math.pow(Math.max(1, p.overall - 60) / 10, 2);
-        return p.position === 'GK' ? w * 0.7 : w;
-      }, rng);
-      const p = pool[i];
-      pool.splice(i, 1);
-      if (p.position === 'GK' && hasGK) continue;
-      if (p.position === 'GK') hasGK = true;
-      chosen.push(p);
+    for (const g of GROUPS) {
+      const cands = pool.filter(p => p.position === g && !chosen.includes(p));
+      if (!cands.length) break;
+      chosen.push(cands[weightedPick(cands, starWeight, rng)]);
+    }
+    while (chosen.length === GROUPS.length && chosen.length < perSquad) {
+      const cands = pool.filter(p => p.position !== 'GK' && !chosen.includes(p));
+      if (!cands.length) break;
+      chosen.push(cands[weightedPick(cands, starWeight, rng)]);
     }
     if (chosen.length < perSquad) continue;
     chosen.forEach(p => persons.add(p.personId));
     deck.push(...chosen);
+    used++;
   }
-  return shuffle(deck, rng);
+  return deck;
 }
 
 export function groupSquads(players) {

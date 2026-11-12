@@ -2,7 +2,7 @@
 // out the unknown cards many times and scoring every team — then plays
 // against the pot odds, flavoured by a personality.
 
-import { bestTotal } from './evaluate.js';
+import { bestTotal } from './evaluate.js?v=20261112093815';
 
 export const PERSONALITIES = {
   rock:     { label: 'Rock',     tight: 0.12, aggr: 0.5, bluff: 0.02 },

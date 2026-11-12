@@ -39,10 +39,11 @@ All the weights are in the `CHEM` constant, so tuning means editing that one pla
 
 ## The deck (`js/engine/deck.js`)
 
-Every hand builds a fresh 52-card deck from **13 random squads × 4
-players**. Squads stand in for ranks, so you land teammates about as often as
-you land a pair in real poker. Stars come up more often, there is at most one
-keeper per squad, and no person appears twice.
+Each game has one **public deck** that stays the same from first hand to last. Only the shuffle changes between hands. The default is **8 squads × 5 players (40 cards)**; 10 × 5 and 13 × 4 are also available. Every squad has a GK, DEF, MID and FWD, plus one extra outfielder in the 5-player squads, so squads work like suits. The **Deck** panel lists every card in the game and marks the ones you can see: yours, the board, and anything shown at showdown. That lets players count what's still out there and read each other's bets.
+
+## Deploying
+
+Run `python3 scripts/bump-version.py` before pushing. It stamps every JS/CSS URL with a version so browsers never mix cached old files with new ones.
 
 ## Other pieces
 

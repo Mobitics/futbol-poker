@@ -1,8 +1,8 @@
 // No-limit Texas Hold'em table where the cards are footballers.
 // Pure state machine: the UI calls act() and reads state; no DOM.
 
-import { buildDeck, mulberry32 } from './deck.js';
-import { bestTeam } from './evaluate.js';
+import { chooseDeck, shuffle, mulberry32 } from './deck.js?v=20261112093815';
+import { bestTeam } from './evaluate.js?v=20261112093815';
 
 export const STREETS = ['preflop', 'flop', 'turn', 'river', 'showdown'];
 
@@ -19,6 +19,10 @@ export class Table {
     this.bb = bigBlind;
     this.rng = mulberry32(seed);
     this.deckOpts = deckOpts;
+    // The deck is fixed for the whole game and known to everyone; only
+    // the order changes from hand to hand.
+    this.composition = chooseDeck(squads, this.rng, deckOpts);
+    this.deckIds = this.composition.map(c => c.id);
     this.dealer = Math.floor(this.rng() * this.seats.length);
     this.handNo = 0;
     this.log = [];
@@ -55,8 +59,7 @@ export class Table {
     for (const s of this.seats) s.out = s.chips <= 0;
     if (this.live.length < 2) { this.street = 'gameover'; return; }
     this.handNo++;
-    this.deck = buildDeck(this.squads, this.rng, this.deckOpts);
-    this.deckIds = this.deck.map(c => c.id);
+    this.deck = shuffle(this.composition, this.rng);
     this.board = [];
     this.result = null;
     for (const s of this.seats) {
